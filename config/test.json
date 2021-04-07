@@ -1,0 +1,6 @@
+{
+  "orm": {
+    "database": "gennest-test",
+    "logging": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "winston": {
+    "format": "default"
+  },
+  "kafka": {
+    "global": {
+      "kafkaHost": "kafka-broker-1.internal.comparaonline.com:9092,kafka-broker-2.internal.comparaonline.com:9092,kafka-broker-3.internal.comparaonline.com:9092"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "winston": {
+    "format": "default"
+  },
+  "kafka": {
+    "global": {
+      "kafkaHost": "kafka-staging:9092"
+    }
+  }
+}

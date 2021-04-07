@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/initialization/index.ts"],"names":[],"mappings":";;AAAA,0BAA0B;AAC1B,6DAA6D;AAC7D,qBAAmB;AACnB,mBAAiB","sourcesContent":["/* istanbul ignore file */\n// Microservice initialization. Do not leave this file empty.\nimport './datadog';\nimport './raven';\n"]}

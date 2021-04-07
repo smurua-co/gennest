@@ -1,0 +1,51 @@
+version: '3.4'
+services:
+  app:
+    build:
+      context: .
+      target: build
+    command: >-
+      yarn watch:cmd node --inspect=0.0.0.0:9000 -r ts-node/register
+      src/index.ts
+    depends_on:
+      - postgres
+    environment:
+      - TS_NODE_FILES=true
+      - NODE_ENV=development
+      - NODE_CONFIG_ENV=development
+      - |
+        NODE_CONFIG={
+          "kafka": {
+            "global": {
+              "kafkaHost": "kafka:9092"
+            }
+          },
+          "sequelize": { "host": "postgres" },
+          "orm": { "host": "postgres" },
+          "redis": { "host": "redis" }
+        }
+    networks:
+      - default
+      - confluent_kafka
+    ports:
+      - '4000:4000'
+      - '9000:9000'
+    volumes:
+      - '.:/code'
+      - /code/node_modules
+  postgres:
+    image: 'postgres:9.6-alpine'
+    environment:
+      POSTGRES_DB: gennest
+      POSTGRES_PASSWORD: pass
+      POSTGRES_USER: user
+    networks:
+      - default
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+networks:
+  confluent_kafka:
+    external: true
+  default: {}
+volumes:
+  postgres: {}

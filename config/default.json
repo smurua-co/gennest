@@ -1,0 +1,46 @@
+{
+  "orm": {
+    "username": "user",
+    "password": "pass",
+    "database": "gennest",
+    "host": "localhost",
+    "dialect": "postgresql",
+    "type": "postgres",
+    "port": 5432
+  },
+  "raven": {
+    "dsn": false
+  },
+  "appName": "gennest",
+  "server": {
+    "port": 4000,
+    "baseUrl": "/gennest",
+    "logFormat": "tiny"
+  },
+  "datadog": {
+    "projectName": "gennest",
+    "host": "datadog"
+  },
+  "winston": {
+    "format": "simple",
+    "level": "info"
+  },
+  "kafka": {
+    "global": {
+      "kafkaHost": "localhost:9092"
+    },
+    "consumer": {
+      "groupId": "gennest",
+      "topics": [
+        "kafka_topic"
+      ],
+      "backpressure": {
+        "pause": 10,
+        "resume": 5
+      }
+    },
+    "producer": {
+      "defaultTopic": "kafka_topic"
+    }
+  }
+}
